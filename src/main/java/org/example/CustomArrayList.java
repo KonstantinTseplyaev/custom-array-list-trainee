@@ -84,7 +84,7 @@ public class CustomArrayList<T> implements CustomList<T> {
     @Override
     public void remove(T element) {
         for (int i = 0; i < this.size; i++) {
-            if (this.data[i].equals(element)) {
+            if (this.data[i].equals(element)) {// NPE если элемент пустой
                 removeByIndex(i);
                 return;
             }
@@ -146,7 +146,7 @@ public class CustomArrayList<T> implements CustomList<T> {
      * (иными словами, удаляет все null ячейки для оптмизации используемой памяти)
      */
     @Override
-    public void trimCapacityToSize() {
+    public void trimCapacityToSize() { // молодец что сделал доп методы
         if (this.size == 0) {
             if (this.capacity > DEFAULT_BASE_CAPACITY) {
                 this.capacity = DEFAULT_BASE_CAPACITY;
